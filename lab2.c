@@ -10,21 +10,17 @@ void main()
 	GPIO_PORTF_DEN_R = 0x1F;
 	GPIO_PORTF_PUR_R = 0x11;
 	
+	int counter;
+	counter = 0;
+	int arr[8] = {0x0,0x2,0x6,0x4,0xC,0xE,0xA,0x8};
+
 	while (1){
 		if ((GPIO_PORTF_DATA_R & 0x11) = 0x01) //SW1
 		{
-			GPIO_PORTF_DATA_R = 0x2; } //Red
-			
-		else if ((GPIO_PORTF_DATA_R & 0×11) = 0×10) //SW2
-		{
-			GPIO_PORTF_DATA_R = 0x4; } //Blue
-			
-		else if ((GPIO_PORTF_DATA_R & 0x11)= 0x00) // Both
-		{
-			GPIO_PORTF_DATA_R = 0x6; } //Magenta (Red + Blue)
-			
-		else
-		{
-			GPIO_PORTF_DATA_R = 0x0; } //all lights off
+			counter %= 8;
+			GPIO_PORTF_DATA_R = arr[counter];
+			counter++;
+			while((GPIO_PORTF_DATA_R & 0x11) == 0x01);
+		}
 	}
 }
