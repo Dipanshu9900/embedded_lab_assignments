@@ -28,3 +28,4 @@ void main()
 			GPIO_PORTF_DATA_R = 0x0; } //all lights off
 	}
 }
+//just repeating the code of part1 for showing branching
