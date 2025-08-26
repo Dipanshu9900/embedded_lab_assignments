@@ -11,15 +11,15 @@ void main()
 	GPIO_PORTF_PUR_R = 0x11;
 	
 	while (1){
-		if ((GPIO_PORTF_DATA_R & 0x11) = 0x01) //SW1
+		if ((GPIO_PORTF_DATA_R & 0x11) == 0x01) //SW1
 		{
 			GPIO_PORTF_DATA_R = 0x2; } //Red
 			
-		else if ((GPIO_PORTF_DATA_R & 0×11) = 0×10) //SW2
+		else if ((GPIO_PORTF_DATA_R & 0x11) == 0x10) //SW2
 		{
 			GPIO_PORTF_DATA_R = 0x4; } //Blue
 			
-		else if ((GPIO_PORTF_DATA_R & 0x11)= 0x00) // Both
+		else if ((GPIO_PORTF_DATA_R & 0x11) == 0x00) // Both
 		{
 			GPIO_PORTF_DATA_R = 0x6; } //Magenta (Red + Blue)
 			
