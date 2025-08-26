@@ -15,7 +15,7 @@ void main()
 	int arr[8] = {0x0,0x2,0x6,0x4,0xC,0xE,0xA,0x8};
 
 	while (1){
-		if ((GPIO_PORTF_DATA_R & 0x11) = 0x01) //SW1
+		if ((GPIO_PORTF_DATA_R & 0x11) == 0x01) //SW1
 		{
 			counter %= 8;
 			GPIO_PORTF_DATA_R = arr[counter];
